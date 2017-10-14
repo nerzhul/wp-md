@@ -1,0 +1,15 @@
+{
+    "name": "nerzhul/wp-md",
+    "description": "A Wordpress plugin add Markdown inclusion in articles",
+    "type": "project",
+    "require": {
+        "erusev/parsedown": "^1.6"
+    },
+    "license": "GPLv3",
+    "authors": [
+        {
+            "name": "Loic Blot",
+            "email": "loic.blot@unix-experience.fr"
+        }
+    ]
+}
