@@ -31,7 +31,7 @@
             return "Unable to read file $filename";
         }
 
-        return (new Parsedown())->text($filename);
+        return (new Parsedown())->text($file);
 
     }
 
