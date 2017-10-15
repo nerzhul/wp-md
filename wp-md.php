@@ -25,7 +25,7 @@
             return "No Wordpress upload directory found.";
         }
 
-        $filename = $upload_dir[0]."/md-articles/".$filename;
+        $filename = $upload_dir['basedir']."/md-articles/".$filename.".md";
         $file = file_get_contents($filename);
         if (!$file) {
             return "Unable to read file $filename";
