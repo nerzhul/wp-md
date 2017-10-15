@@ -13,7 +13,7 @@
 
     function WordpressMarkdownShortCode($params = array()) {
         extract(shortcode_atts(array(
-            'md_file' => null,
+            'file' => null,
         ), $params));
 
         if ($md_file === null) {
