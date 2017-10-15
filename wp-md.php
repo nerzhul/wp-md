@@ -13,16 +13,26 @@
 
     function WordpressMarkdownShortCode($params = array()) {
         extract(shortcode_atts(array(
-            'file' => null,
+            'filename' => null,
         ), $params));
 
-        if ($md_file === null) {
+        if ($filename === null) {
             return "Unknown markdown file";
         }
 
-        $Parsedown = new Parsedown();
+        $upload_dir = wp_upload_dir();
+        if (count($upload_dir) == 0) {
+            return "No Wordpress upload directory found.";
+        }
 
-        return $Parsedown->text('Hello _Parsedown_!');
+        $filename = $upload_dir."/md-articles/".$filename;
+        $file = file_get_contents($filename);
+        if (!$file) {
+            return "Unable to read file $filename";
+        }
+
+        return (new Parsedown())->text($filename);
+
     }
 
     add_shortcode('wp-md', 'WordpressMarkdownShortCode');
